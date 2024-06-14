@@ -21,10 +21,7 @@ jobs:
       - name: Extract project version
         id: extract_version
         run: |
-          ls -la 
           cd book-network-ui
-          ls -la   
-          cat package.json
           echo "VERSION=$(jq -r '.version' package.json)" >> $GITHUB_OUTPUT
       - name: Echo UI version
         run: |
