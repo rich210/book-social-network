@@ -121,9 +121,9 @@ jobs:
           build-args: |
             PROFILE=dev
             APP_VERSION=${{steps.extract_version.outputs.VERSION}}
-            POST_USERNAME=${secrets.POSTGRESQL_USERNAME}
-            POST_PASSWORD=${secrets.POSTGRESQL_PASSWORD}
-            E_PASSWORD=${secrets.EMAIL_PASSWORD}
+            POST_USERNAME=${{secrets.POSTGRESQL_USERNAME}}
+            POST_PASSWORD=${{secrets.POSTGRESQL_PASSWORD}}
+            E_PASSWORD=${{secrets.EMAIL_PASSWORD}}
   # deploy:
   #   name: Deploy Backend
   #   runs-on: ubuntu-latest
