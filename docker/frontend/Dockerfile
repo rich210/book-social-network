@@ -6,10 +6,18 @@ COPY . .
 RUN npm run build-dev
 
 
+# Stage 2: Serve the Angular application with Nginx
 FROM nginx:alpine
 COPY nginx.conf /etc/nginx/nginx.conf
-COPY --from=build-stage /app/dist/book-network-ui /usr/share/nginx/html
+COPY --from=build-stage /app/dist/book-network-ui/browser /usr/share/nginx/html
+COPY --from=build-stage /app/dist/book-network-ui/server /usr/share/nginx/html
 EXPOSE 80
+CMD ["nginx", "-g", "daemon off;"]
+
+# FROM nginx:alpine
+# COPY nginx.conf /etc/nginx/nginx.conf
+# COPY --from=build-stage /app/dist/book-network-ui /usr/share/nginx/html
+# EXPOSE 80
 
 FROM node:20-alpine as ssr-server
 COPY --from=build-stage /app/dist/ /app/dist/
