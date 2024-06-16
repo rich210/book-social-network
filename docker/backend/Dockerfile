@@ -34,5 +34,7 @@ ENV EMAIL_PASSWORD=${E_PASSWORD}
 ENV POSTGRESQL_USERNAME=${POST_USERNAME}
 ENV POSTGRESQL_PASSWORD=${POST_PASSWORD}
 
+RUN echo 'Database: ${{DB_URL}}'
+
 
 CMD java -jar -Dspring.profile.active=${ACTIVE_PROFILE} -Dspring.datasource.url=${DB_URL} book-network-${JAR_VERSION}.jar 
