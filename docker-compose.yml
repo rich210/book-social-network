@@ -1,14 +1,14 @@
 services:
   bsn-api:
     container_name: bsn-api
-    image: bsn/bsn:1.0.5
+    image: rich210/bsn-api:1.0.5
     ports:
       - 8088:8088
     networks:
       - spring-demo
   bsn-ui:
     container_name: bsn-ui
-    image: bsn/bsn-ui:1.0.0
+    image: rich210/bsn-ui:0.0.1
     ports:
       - 80:4000
     networks:
