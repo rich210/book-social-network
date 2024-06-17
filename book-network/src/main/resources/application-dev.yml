@@ -39,7 +39,7 @@ application:
     frontend:
       activation-url: http://localhost:4200/activate-account
   cors:
-    origins: http://localhost:4200,http://localhost:4000
+    origins: http://localhost:4200,http://localhost:4000,https://book-social-network.azurewebsites.net/
   file:
     upload:
       photos-output-path: ./uploads
